@@ -14,3 +14,5 @@
 - 「このアプリについて」はトップ下部に残す
 - 他画面の10個メニュー非表示は維持
 - PWAキャッシュ名を v1.9 に更新
+
+https://takoyaki-project.github.io/are-ureta-event-register/
