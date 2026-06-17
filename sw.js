@@ -1,4 +1,4 @@
-const CACHE_NAME = 'are-ureta-v1-6-cache-001';
+const CACHE_NAME = 'are-ureta-v1-7-cache-001';
 
 const ASSETS_TO_CACHE = [
   './',

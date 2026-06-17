@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>あれ売れた？</title>
+<title>あれ売れた？ v1.7</title>
 <meta name="theme-color" content="#2D5A3D">
 <meta name="description" content="売ったあと、記録で困らないイベント販売レジ。バザー・夏祭り・文化祭などで、売上・在庫・完売時間を記録できます。">
 <link rel="manifest" href="./manifest.json">
@@ -13,8 +13,16 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
 :root{--og:#F4845F;--og-lt:#FDDAC8;--og-bg:#FFF5EF;--cr:#FDF6E3;--cr-dk:#F5ECD0;--gn:#2D5A3D;--gn-md:#4A7C5E;--gn-lt:#A8C5A0;--gn-bg:#EFF5F1;--br:#7B5E3A;--tx:#3A2E1F;--tx-lt:#7A6A55;--wh:#FFF;--rd:#C0392B;--rd-lt:#FDEAEA;--r:20px;--rs:12px;}
-*{box-sizing:border-box;margin:0;padding:0} body{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;background:#1a1a1a;display:flex;justify-content:center;min-height:100vh;color:var(--tx)}
+*{box-sizing:border-box;margin:0;padding:0} body{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;background:var(--og-bg);display:flex;justify-content:center;min-height:100vh;color:var(--tx)}
 .app{width:100%;max-width:480px;min-height:100vh;background:var(--og-bg);display:flex;flex-direction:column;position:relative}.tb{background:var(--gn);color:var(--wh);padding:15px 16px;font-size:18px;font-weight:900;display:flex;align-items:center;gap:10px;min-height:58px;flex-shrink:0}.tb .bk{background:rgba(255,255,255,.2);border:none;border-radius:10px;padding:6px 12px;font-size:14px;font-weight:700;color:var(--wh);cursor:pointer;font-family:inherit}.tb .ti{flex:1}.tb .tm{font-size:12px;color:var(--gn-lt);font-weight:500}.sc{display:none;flex-direction:column;flex:1;overflow-y:auto}.sc.on{display:flex}.sb{padding:20px 18px;flex:1;display:flex;flex-direction:column}.bp,.bg,.bs,.bgh{width:100%;border-radius:var(--r);font-family:inherit;cursor:pointer;font-weight:900}.bp{background:var(--og);color:var(--wh);border:none;padding:17px;font-size:19px;box-shadow:0 5px 0 #C4562A}.bg{background:var(--gn);color:var(--wh);border:none;padding:17px;font-size:19px;box-shadow:0 5px 0 #1A3D28;margin-top:10px}.bs{background:var(--wh);color:var(--gn);border:2.5px solid var(--gn-lt);padding:13px;font-size:15px;margin-top:10px}.bgh{background:transparent;color:var(--tx-lt);border:2px solid var(--cr-dk);padding:13px;font-size:14px;margin-top:10px;box-shadow:none}.row{display:flex;gap:10px}.row>*{flex:1}.lbl{font-size:14px;font-weight:700;color:var(--tx-lt);margin-bottom:5px;display:block}.inp,.sel,textarea{width:100%;background:var(--wh);border:2.5px solid var(--cr-dk);border-radius:var(--rs);padding:14px 15px;font-size:17px;font-weight:700;font-family:inherit;color:var(--tx);margin-bottom:14px}textarea{font-size:15px;min-height:80px;resize:vertical}.inp.sm{font-size:15px;padding:11px 12px;margin-bottom:0}.hero{text-align:center;padding:14px 0}.hero-ic{font-size:45px}.hero-t{font-size:21px;font-weight:900;color:var(--gn);margin-top:8px;line-height:1.45}.hint{font-size:13px;color:var(--tx-lt);line-height:1.7}.sp{flex:1}.dv{font-size:12px;font-weight:700;color:var(--tx-lt);margin:14px 0 8px;display:flex;align-items:center;gap:7px}.dv:after{content:'';flex:1;height:1px;background:var(--cr-dk)}.empty{background:var(--wh);border:2px dashed var(--cr-dk);border-radius:var(--r);padding:24px 18px;text-align:center;color:var(--tx-lt);font-weight:700;line-height:1.7}.ev-list,.pl,.nl,.adj-log{display:flex;flex-direction:column;gap:10px}.ev-card,.pr,.ni,.rr,.adj-li{background:var(--wh);border-radius:var(--r);padding:14px 15px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 8px rgba(45,90,61,.08)}.ev-card{border:2px solid var(--cr-dk);cursor:pointer}.ev-ic,.pr-ic{font-size:26px}.ev-inf,.grow{flex:1}.ev-nm,.pr-nm{font-size:15px;font-weight:900}.ev-dt,.pr-dt,.small{font-size:12px;color:var(--tx-lt);margin-top:2px}.ev-sa{text-align:right}.ev-am{font-size:15px;font-weight:900;color:var(--gn)}.ev-ar{color:var(--gn-lt);font-size:20px}.mc{background:var(--wh);border:3px solid var(--cr-dk);border-radius:var(--r);padding:20px 17px;margin-bottom:13px;position:relative;cursor:pointer}.mc.sel{border-color:var(--og);background:var(--og-bg)}.mc-ic{font-size:33px}.mc-nm{font-size:20px;font-weight:900;color:var(--gn);margin:4px 0}.mc-sub{font-size:13px;color:var(--tx-lt);line-height:1.7}.mc-bd{position:absolute;top:12px;right:12px;background:var(--og-lt);color:var(--br);font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px}.pr-st{margin-left:auto;background:var(--gn-bg);color:var(--gn);font-size:12px;font-weight:900;padding:5px 10px;border-radius:8px;white-space:nowrap}.mini-btn{border:none;border-radius:10px;padding:8px 9px;font-size:12px;font-weight:900;font-family:inherit;cursor:pointer;background:var(--cr-dk);color:var(--br)}.mini-btn.danger{background:var(--rd-lt);color:var(--rd)}.ab{background:var(--wh);border:2px solid var(--og-lt);border-radius:var(--r);padding:14px;margin-top:8px}.ab-t{font-size:14px;font-weight:900;color:var(--og);margin-bottom:10px}.ni{border-left:5px solid var(--og);border-radius:0 var(--rs) var(--rs) 0;align-items:flex-start;font-size:15px;line-height:1.6}.ni-ic{font-size:20px;flex-shrink:0}.adj-bar{background:var(--cr-dk);padding:7px 14px;display:flex;align-items:center;font-size:12px;font-weight:700;color:var(--br);gap:8px}.adj-bar-btn{margin-left:auto;background:var(--og-lt);color:var(--br);border:none;border-radius:100px;padding:5px 12px;font-size:12px;font-weight:900;font-family:inherit;cursor:pointer}.rg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}.rc{background:var(--wh);border:2.5px solid var(--cr-dk);border-radius:var(--r);padding:14px 8px;text-align:center;cursor:pointer;position:relative;min-height:137px}.rc.low{border-color:var(--og-lt);background:var(--og-bg)}.rc.gone{opacity:.45}.rc-ic{font-size:28px}.rc-nm{font-size:14px;font-weight:900;margin-top:5px}.rc-pr{font-size:13px;color:var(--og);font-weight:900;margin-top:2px}.rc-st{font-size:11px;color:var(--tx-lt);margin-top:2px}.low-bd,.sold-bd{background:var(--og);color:var(--wh);font-size:9px;font-weight:900;padding:2px 6px;border-radius:100px}.low-bd{position:absolute;top:7px;right:7px}.sold-bd{display:inline-block;background:#555;margin-left:3px}.ca{background:var(--wh);border-radius:var(--r) var(--r) 0 0;padding:14px 16px;border-top:3px solid var(--cr-dk);flex-shrink:0}.ca-hd{font-size:12px;font-weight:700;color:var(--tx-lt);margin-bottom:7px}.ca-ln{display:flex;justify-content:space-between;font-size:15px;font-weight:700;margin-bottom:4px}.ca-tot{border-top:2px solid var(--cr-dk);padding-top:9px;margin-top:7px;font-size:22px;font-weight:900;color:var(--gn);display:flex;justify-content:space-between}.ca-btns{display:flex;gap:9px;margin-top:10px}.cb{padding:13px;border-radius:var(--rs);font-size:15px;font-weight:900;font-family:inherit;border:none;cursor:pointer}.cb.pay{background:var(--og);color:var(--wh);flex:2;font-size:17px}.cb.chg{background:var(--cr-dk);color:var(--br);flex:1;font-size:13px;line-height:1.4}.cb.cancel{background:#eee;color:var(--tx-lt);width:100%;margin-top:7px;font-size:13px;padding:10px}.cb.undo{background:var(--rd-lt);color:var(--rd);width:100%;margin-top:7px;font-size:13px;padding:11px;border:2px solid #e8aaaa}.badge{display:inline-block;border-radius:100px;background:var(--gn-bg);color:var(--gn);font-size:11px;font-weight:900;padding:3px 8px;margin-top:4px}.ct-box,.rh,.rp{background:var(--wh);border-radius:var(--r);padding:18px;margin-bottom:14px;box-shadow:0 3px 14px rgba(45,90,61,.09)}.ct-tot{font-size:36px;font-weight:900;color:var(--gn);margin:3px 0 16px}.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:8px 0 12px}.pb{background:var(--cr-dk);border:none;border-radius:10px;padding:12px 4px;font-size:13px;font-weight:900;font-family:inherit;color:var(--br);cursor:pointer}.pb.act{background:var(--og);color:var(--wh)}.chg-box{background:var(--gn-bg);border:2px solid var(--gn-lt);border-radius:var(--rs);padding:12px 15px;display:flex;justify-content:space-between;align-items:center}.chg-val{font-size:26px;font-weight:900;color:var(--gn)}.rh{background:linear-gradient(135deg,var(--gn),var(--gn-md));color:var(--wh);text-align:center}.rh-l{font-size:12px;color:var(--gn-lt)}.rh-a{font-size:40px;font-weight:900}.rh-s{font-size:13px;color:var(--gn-lt);margin-top:3px}.rr{justify-content:space-between;align-items:flex-start}.rr-q{font-size:15px;font-weight:900;color:var(--og);text-align:right}.rr-s{font-size:11px;color:var(--og);font-weight:700;margin-top:2px;text-align:right}.adj-li{border-radius:var(--rs);font-size:13px}.al-tm{color:var(--tx-lt);font-size:12px}.al-dl{font-size:14px;font-weight:900}.al-dl.p{color:var(--gn)}.al-dl.m{color:var(--rd)}.al-rs{background:var(--cr-dk);color:var(--br);font-size:10px;font-weight:700;padding:2px 7px;border-radius:100px}.rp-hd{text-align:center;border-bottom:3px double var(--gn);padding-bottom:12px;margin-bottom:12px}.rp-hd h2{font-size:18px;font-weight:900;color:var(--gn)}.kg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px}.kb{background:var(--gn-bg);border-radius:8px;padding:9px 7px;text-align:center}.kl{font-size:10px;color:var(--tx-lt)}.kv{font-size:18px;font-weight:900;color:var(--gn)}.rt{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:10px}.rt th{background:var(--gn);color:var(--wh);padding:6px 4px;text-align:center;font-size:10px}.rt td{padding:5px 4px;border-bottom:1px solid var(--cr-dk);text-align:center}.rt td:first-child{text-align:left;font-size:10px}.rt tr:nth-child(even) td{background:var(--cr)}.sr td{color:var(--og);font-weight:700}.rh2{background:var(--og-bg);border:1.5px solid var(--og-lt);border-radius:7px;padding:8px 11px;margin-bottom:6px;font-size:11px}.rh2 .hl{font-size:10px;color:var(--tx-lt)}.rh2 .hv{font-weight:900;color:var(--br)}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:rgba(58,46,31,.94);color:#fff;padding:10px 14px;border-radius:100px;font-size:13px;font-weight:900;z-index:99;opacity:0;pointer-events:none;transition:.2s}.toast.show{opacity:1}.devnav{background:rgba(0,0,0,.06);padding:10px 12px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;border-top:1px solid var(--cr-dk);flex-shrink:0}.devnav button{background:#fff;border:2px solid var(--cr-dk);border-radius:14px;padding:9px 4px;min-height:42px;font-size:12px;font-weight:900;color:var(--tx-lt);font-family:inherit;cursor:pointer;line-height:1.15}.devnav button:hover{background:var(--og);color:#fff;border-color:var(--og)}.print-only{display:none}@media print{body{background:#fff}.app{max-width:none}.tb,.devnav,.no-print,.bp,.bg,.bs,.bgh{display:none!important}.sc{display:none!important}.sc.on{display:block!important}.sb{padding:0}.rp{box-shadow:none;border-radius:0}.print-only{display:block}}
+
+.sc:not(#s1)>.devnav{display:none}
+.top-actions{display:flex;flex-direction:column;gap:9px;margin-bottom:14px}
+.about-link{background:transparent;border:none;color:var(--tx-lt);font-family:inherit;font-weight:900;font-size:13px;text-decoration:underline;cursor:pointer;margin:10px auto 0;display:block}
+.info-card{background:var(--wh);border:2px solid var(--cr-dk);border-radius:var(--r);padding:14px 15px;margin-bottom:14px;box-shadow:0 2px 8px rgba(45,90,61,.08)}
+.catchbar{background:var(--cr);border-bottom:1px solid var(--cr-dk);padding:8px 18px;font-size:12px;font-weight:900;color:var(--br);line-height:1.45}
+.about-credit{text-align:center;margin-top:18px;font-size:11px;line-height:1.7;color:var(--tx-lt);letter-spacing:.08em;font-weight:900;opacity:.78}
+
 </style>
 </head>
 <body>
@@ -22,34 +30,45 @@
 <section class="sc on" id="s1">
   <div class="tb"><div class="ti">🛍️ あれ売れた？</div></div>
 
-  <div style="background:var(--cr);border-bottom:1px solid var(--cr-dk);padding:8px 18px;font-size:12px;font-weight:900;color:var(--br);line-height:1.45;">
+  <div class="catchbar">
     売ったあと、記録で困らないイベント販売レジ。
   </div>
 
   <div class="sb">
-    <div style="background:var(--wh);border:2px solid var(--cr-dk);border-radius:var(--r);padding:14px 15px;margin-bottom:14px;box-shadow:0 2px 8px rgba(45,90,61,.08)">
+    <div class="top-actions">
+      <button class="bp" onclick="startNewEvent()">＋ 新しいイベントをはじめる</button>
+      <button class="bs" onclick="seedDemo()" style="margin-top:0">使い方を試してみる</button>
+    </div>
+
+    <div class="info-card">
       <div class="hint" style="font-size:12px;line-height:1.7">
         バザー・夏祭り・文化祭などで、<br>
         「何が」「いくつ」「いつ売り切れたか」を記録できます。<br><br>
-        レジとして使いながら、売上・残り数・完売時間を自動で記録。<br>
-        イベント後は、会計報告や引継ぎ用の販売レポートを作れます。
+        売上・残り数・完売時間を自動で記録し、<br>
+        会計報告や引継ぎ用の販売レポートを作れます。
       </div>
     </div>
 
     <div style="margin-bottom:12px">
       <div style="font-size:19px;font-weight:900;color:var(--gn)">イベント一覧</div>
-      <div class="hint" style="font-size:12px">記録を見返したり、新しく始められます</div>
+      <div class="hint" style="font-size:12px">作成済みのイベント記録を見返せます</div>
     </div>
 
     <div id="eventList" class="ev-list"></div>
-    <div class="sp"></div>
-    <button class="bp" onclick="startNewEvent()">＋ 新しいイベントをはじめる</button>
-    <button class="bgh" onclick="seedDemo()">見本データを入れる</button>
-    <div class="hint" style="text-align:center;margin-top:10px;font-size:12px">記録はこの端末に保存されます</div>
-    <div style="text-align:center;margin-top:16px;font-size:10px;line-height:1.6;color:var(--tx-lt);letter-spacing:.08em;font-weight:700;opacity:.72">
-      TAKOYAKI PROJECT<br>
-      The development never ends.
-    </div>
+    <button class="about-link" onclick="go('s10')">このアプリについて</button>
+  </div>
+
+  <div class="devnav">
+    <button class="cur" onclick="go('s1')">一覧</button>
+    <button onclick="go('s2')">作成</button>
+    <button onclick="go('s3')">方式</button>
+    <button onclick="go('s4')">商品</button>
+    <button onclick="go('s5')">開店前</button>
+    <button onclick="go('s6')">レジ</button>
+    <button onclick="go('s6b')">在庫</button>
+    <button onclick="go('s7')">おつり</button>
+    <button onclick="go('s8')">結果</button>
+    <button onclick="go('s9')">レポート</button>
   </div>
 </section>
 <section class="sc" id="s2"><div class="tb"><button class="bk" onclick="go('s1')">← 一覧</button><div class="ti">新しいイベント</div><div class="tm">1 / 4</div></div><div class="sb"><div class="hero"><div class="hero-ic">🎪</div><div class="hero-t">今日のイベントを<br>はじめましょう！</div></div><label class="lbl">📝 イベント名</label><input id="evName" class="inp" placeholder="例：〇〇小学校バザー2026"><label class="lbl">📅 開催日</label><input id="evDate" class="inp" type="date"><label class="lbl">🏷️ 担当コーナー名</label><input id="evCorner" class="inp" placeholder="例：手作りお菓子コーナー"><div class="sp"></div><button class="bp" onclick="saveEventInfo()">つぎへ →</button></div></section>
@@ -63,6 +82,40 @@
 <section class="sc" id="s9"><div class="tb"><button class="bk" onclick="go('s8')">←</button><div class="ti">📄 引継ぎレポート</div></div><div class="sb"><div id="reportBox" class="rp"></div><div class="row no-print" style="margin-top:12px"><button class="bp" style="font-size:15px;padding:14px" onclick="window.print()">🖨️ 印刷 / PDF保存</button><button class="bs" style="margin-top:0;font-size:14px;padding:12px" onclick="copyReport()">📋 内容コピー</button></div></div></section>
 <div class="devnav no-print"><button onclick="go('s1')">一覧</button><button onclick="go('s2')">作成</button><button onclick="go('s3')">方式</button><button onclick="go('s4')">商品</button><button onclick="go('s5')">開店前</button><button onclick="go('s6')">レジ</button><button onclick="go('s6b')">在庫</button><button onclick="go('s7')">おつり</button><button onclick="go('s8')">結果</button><button onclick="go('s9')">レポート</button></div>
 </div><div id="toast" class="toast"></div>
+<section class="sc" id="s10">
+  <div class="tb"><button class="bk" onclick="go('s1')">← 一覧</button><div class="ti">このアプリについて</div></div>
+  <div class="sb">
+    <div class="info-card">
+      <div style="font-size:24px;font-weight:900;color:var(--gn);line-height:1.3;margin-bottom:8px">🛍️ あれ売れた？</div>
+      <div style="font-size:14px;font-weight:900;color:var(--og);line-height:1.6;margin-bottom:12px">売ったあと、記録で困らないイベント販売レジ。</div>
+      <div class="hint" style="font-size:13px;line-height:1.8">
+        バザー・夏祭り・文化祭などで、<br>
+        「何が」「いくつ」「いつ売り切れたか」を記録できます。<br><br>
+        レジとして使いながら、売上・残り数・完売時間を自動で記録。<br>
+        イベント後は、会計報告や引継ぎ用の販売レポートを作れます。
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div style="font-size:15px;font-weight:900;color:var(--gn);margin-bottom:8px">ご利用前の注意</div>
+      <div class="hint" style="font-size:13px;line-height:1.8">
+        販売データは、この端末のブラウザ内に保存されます。<br>
+        別の端末とは自動で共有されません。<br><br>
+        イベント当日は、できるだけ同じスマホ・タブレットで使ってください。<br>
+        画面の自動ロックは長めに設定しておくと安心です。
+      </div>
+    </div>
+
+    <div class="about-credit">
+      TAKOYAKI PROJECT<br>
+      The development never ends.
+    </div>
+
+    <div class="sp"></div>
+    <button class="bp" onclick="go('s1')">一覧へ戻る</button>
+  </div>
+</section>
+
 <script>
 const KEY='areUretaMvpV1';
 const icons=['🍪','🧇','🍡','🎂','🧁','🍩','🍰','☕','🥤','🍙','🍛','📦'];
@@ -111,7 +164,7 @@ function renderCheckout(){const total=cartTotal();const box=document.getElementB
 function renderResults(){const e=currentEvent();if(!e)return;const t=totals(e);const head=document.getElementById('resultHead'),rows=document.getElementById('resultRows');if(!head||!rows)return;head.innerHTML=`<div class="rh-l">🏆 総売上</div><div class="rh-a">${money(t.total)}</div><div class="rh-s">総販売数 ${t.sold}個 ／ ${e.products.length}商品</div>`;rows.innerHTML=e.products.map(p=>`<div class="rr"><div><div class="pr-nm">${p.icon} ${esc(p.name)}</div><div class="small">@${yen(p.price)}</div></div><div><div class="rr-q">${p.sold}個売れた</div><div class="small" style="text-align:right">${e.mode==='stock'?'残り '+p.currentStock+'個':''}</div>${p.soldOutAt?`<div class="rr-s">🎯 ${hm(p.soldOutAt)} 完売！</div>`:''}</div></div>`).join('')}
 function renderReport(){const e=currentEvent();const box=document.getElementById('reportBox');if(!e||!box)return;const t=totals(e);const best=[...e.products].sort((a,b)=>b.sold-a.sold)[0];const firstSold=[...e.products].filter(p=>p.soldOutAt).sort((a,b)=>a.soldOutAt-b.soldOutAt)[0];const leftovers=e.mode==='stock'?e.products.filter(p=>p.currentStock>0):[];box.innerHTML=`<div class="rp-hd"><div class="small">📋 販売実績レポート</div><h2>${esc(e.name||'イベント')}</h2><p>${fmtDate(e.date)}　担当：${esc(e.corner||'')}</p></div><div class="kg"><div class="kb"><div class="kl">💰 総売上</div><div class="kv">${money(t.total)}</div></div><div class="kb"><div class="kl">📦 総販売数</div><div class="kv">${t.sold}個</div></div><div class="kb"><div class="kl">🛍️ 準備合計</div><div class="kv">${e.mode==='stock'?t.initial+'個':'—'}</div></div><div class="kb"><div class="kl">⏱️ 最初の完売</div><div class="kv">${firstSold?hm(firstSold.soldOutAt):'—'}</div></div></div><div class="lbl">商品別結果</div><table class="rt"><thead><tr><th>商品名</th><th>単価</th><th>準備</th><th>販売</th><th>残り</th><th>完売</th></tr></thead><tbody>${e.products.map(p=>`<tr class="${p.soldOutAt?'sr':''}"><td>${p.icon} ${esc(p.name)}</td><td>${yen(p.price)}</td><td>${e.mode==='stock'?p.initialStock:'—'}</td><td>${p.sold}</td><td>${e.mode==='stock'?p.currentStock:'—'}</td><td>${p.soldOutAt?hm(p.soldOutAt):'—'}</td></tr>`).join('')}</tbody></table><div class="rh2"><div class="hl">🏆 一番売れた商品</div><div class="hv">${best?best.icon+' '+esc(best.name)+'（'+best.sold+'個 / '+money(best.sold*best.price)+'）':'—'}</div></div><div class="rh2"><div class="hl">⚡ 一番早く完売した商品</div><div class="hv">${firstSold?firstSold.icon+' '+esc(firstSold.name)+'（'+hm(firstSold.soldOutAt)+' 完売）':'完売商品なし'}</div></div><div class="rh2"><div class="hl">📦 売れ残り商品</div><div class="hv">${leftovers.length?leftovers.map(p=>p.icon+' '+esc(p.name)+' '+p.currentStock+'個残り').join('　'):'なし'}</div></div><div class="lbl">📝 来年・次回へのメモ</div><textarea id="reportMemo" placeholder="印刷前にここへメモできます"></textarea>`}
 function copyReport(){const e=currentEvent();const t=totals(e);const text=`${e.name}\n${fmtDate(e.date)} ${e.corner}\n総売上 ${money(t.total)}\n総販売数 ${t.sold}個\n`+e.products.map(p=>`${p.name}: ${p.sold}個販売 ${e.mode==='stock' ? '残り'+p.currentStock+'個' : ''}`).join('\n');navigator.clipboard?.writeText(text);toast('レポート内容をコピーしました')}
-function seedDemo(){if(!confirm('見本データを追加しますか？'))return;const e={id:uid(),name:'〇〇小学校バザー2026',date:today(),corner:'手作りお菓子コーナー',mode:'stock',status:'closed',createdAt:Date.now(),openedAt:Date.now(),closedAt:Date.now(),sales:[],adjustments:[],products:[{id:uid(),icon:'🍪',name:'手作りクッキー',price:200,initialStock:30,currentStock:0,sold:30,soldOutAt:Date.now()-3600000},{id:uid(),icon:'🧇',name:'黒糖ワッフル',price:150,initialStock:20,currentStock:2,sold:18,soldOutAt:null},{id:uid(),icon:'🍡',name:'みたらし団子',price:100,initialStock:20,currentStock:0,sold:20,soldOutAt:Date.now()-2600000},{id:uid(),icon:'🎂',name:'シフォンケーキ',price:300,initialStock:10,currentStock:4,sold:6,soldOutAt:null}]};e.sales=[{id:uid(),time:Date.now(),items:[],total:12350,paid:null,change:null}];state.events.unshift(e);state.currentId=e.id;save();go('s8')}
+function seedDemo(){if(!confirm('おためし用のイベント記録を作ります。本番の記録とは別に保存されます。よろしいですか？'))return;const e={id:uid(),name:'〇〇小学校バザー2026',date:today(),corner:'手作りお菓子コーナー',mode:'stock',status:'closed',createdAt:Date.now(),openedAt:Date.now(),closedAt:Date.now(),sales:[],adjustments:[],products:[{id:uid(),icon:'🍪',name:'手作りクッキー',price:200,initialStock:30,currentStock:0,sold:30,soldOutAt:Date.now()-3600000},{id:uid(),icon:'🧇',name:'黒糖ワッフル',price:150,initialStock:20,currentStock:2,sold:18,soldOutAt:null},{id:uid(),icon:'🍡',name:'みたらし団子',price:100,initialStock:20,currentStock:0,sold:20,soldOutAt:Date.now()-2600000},{id:uid(),icon:'🎂',name:'シフォンケーキ',price:300,initialStock:10,currentStock:4,sold:6,soldOutAt:null}]};e.sales=[{id:uid(),time:Date.now(),items:[],total:12350,paid:null,change:null}];state.events.unshift(e);state.currentId=e.id;save();go('s8')}
 function esc(s){return String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 function fmtDate(d){if(!d)return'';const x=new Date(d+'T00:00:00');return isNaN(x)?d:x.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'short'})}
 load();render();setInterval(()=>{const n=document.getElementById('nowTime');if(n)n.textContent=hm()},30000);
