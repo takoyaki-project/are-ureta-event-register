@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>あれ売れた？ v1.7</title>
+<title>あれ売れた？ v1.9</title>
 <meta name="theme-color" content="#2D5A3D">
 <meta name="description" content="売ったあと、記録で困らないイベント販売レジ。バザー・夏祭り・文化祭などで、売上・在庫・完売時間を記録できます。">
 <link rel="manifest" href="./manifest.json">
@@ -23,41 +23,46 @@
 .catchbar{background:var(--cr);border-bottom:1px solid var(--cr-dk);padding:8px 18px;font-size:12px;font-weight:900;color:var(--br);line-height:1.45}
 .about-credit{text-align:center;margin-top:18px;font-size:11px;line-height:1.7;color:var(--tx-lt);letter-spacing:.08em;font-weight:900;opacity:.78}
 
+
+html, body { min-height: 100%; background: var(--og-bg); }
+.app { background: var(--og-bg); }
+.devnav { background: rgba(255,245,239,.96); }
+.sc:not(#s1)>.devnav{display:none}
+
+
+/* v1.9 top A layout */
+.top-a-header{background:var(--gn);padding:22px 20px 20px;position:relative;overflow:hidden;flex-shrink:0}
+.top-a-header::after{content:'';position:absolute;right:-20px;bottom:-30px;width:120px;height:120px;background:var(--og);border-radius:50%;opacity:.18}
+.top-a-name{font-size:22px;font-weight:900;color:#fff;display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.top-a-tagline{font-size:12px;color:var(--gn-lt);margin-top:4px;position:relative;z-index:1;line-height:1.5}
+.top-a-body{padding:18px 18px;flex:1;display:flex;flex-direction:column}
+.top-a-section-title{font-size:17px;font-weight:900;color:var(--gn);margin-bottom:10px}
+.top-a-empty{background:var(--wh);border:2px dashed var(--cr-dk);border-radius:var(--r);padding:22px 18px;text-align:center;margin-bottom:14px}
+.top-a-empty-icon{font-size:32px;margin-bottom:6px}
+.top-a-empty-text{font-size:14px;font-weight:700;color:var(--tx-lt);line-height:1.6}
+.top-a-menu-title{font-size:12px;font-weight:900;color:var(--tx-lt);margin:14px 18px 8px}
+
 </style>
 </head>
 <body>
 <div class="app">
 <section class="sc on" id="s1">
-  <div class="tb"><div class="ti">🛍️ あれ売れた？</div></div>
-
-  <div class="catchbar">
-    売ったあと、記録で困らないイベント販売レジ。
+  <div class="top-a-header">
+    <div class="top-a-name">🛍️ あれ売れた？</div>
+    <div class="top-a-tagline">売ったあと、記録で困らないイベント販売レジ。</div>
   </div>
 
-  <div class="sb">
-    <div class="top-actions">
+  <div class="top-a-body">
+    <div class="top-a-section-title">イベント一覧</div>
+    <div id="eventList" class="ev-list"></div>
+
+    <div class="top-actions" style="margin-top:14px">
       <button class="bp" onclick="startNewEvent()">＋ 新しいイベントをはじめる</button>
       <button class="bs" onclick="seedDemo()" style="margin-top:0">使い方を試してみる</button>
     </div>
-
-    <div class="info-card">
-      <div class="hint" style="font-size:12px;line-height:1.7">
-        バザー・夏祭り・文化祭などで、<br>
-        「何が」「いくつ」「いつ売り切れたか」を記録できます。<br><br>
-        売上・残り数・完売時間を自動で記録し、<br>
-        会計報告や引継ぎ用の販売レポートを作れます。
-      </div>
-    </div>
-
-    <div style="margin-bottom:12px">
-      <div style="font-size:19px;font-weight:900;color:var(--gn)">イベント一覧</div>
-      <div class="hint" style="font-size:12px">作成済みのイベント記録を見返せます</div>
-    </div>
-
-    <div id="eventList" class="ev-list"></div>
-    <button class="about-link" onclick="go('s10')">このアプリについて</button>
   </div>
 
+  <div class="top-a-menu-title">画面メニュー</div>
   <div class="devnav">
     <button class="cur" onclick="go('s1')">一覧</button>
     <button onclick="go('s2')">作成</button>
@@ -70,6 +75,8 @@
     <button onclick="go('s8')">結果</button>
     <button onclick="go('s9')">レポート</button>
   </div>
+
+  <button class="about-link" onclick="go('s10')" style="margin:10px auto 14px">このアプリについて</button>
 </section>
 <section class="sc" id="s2"><div class="tb"><button class="bk" onclick="go('s1')">← 一覧</button><div class="ti">新しいイベント</div><div class="tm">1 / 4</div></div><div class="sb"><div class="hero"><div class="hero-ic">🎪</div><div class="hero-t">今日のイベントを<br>はじめましょう！</div></div><label class="lbl">📝 イベント名</label><input id="evName" class="inp" placeholder="例：〇〇小学校バザー2026"><label class="lbl">📅 開催日</label><input id="evDate" class="inp" type="date"><label class="lbl">🏷️ 担当コーナー名</label><input id="evCorner" class="inp" placeholder="例：手作りお菓子コーナー"><div class="sp"></div><button class="bp" onclick="saveEventInfo()">つぎへ →</button></div></section>
 <section class="sc" id="s3"><div class="tb"><button class="bk" onclick="go('s2')">←</button><div class="ti">販売方式を選んでください</div><div class="tm">2 / 4</div></div><div class="sb"><div class="hint" style="margin-bottom:14px">どちらのやり方で販売しますか？</div><div id="modeStock" class="mc sel" onclick="setMode('stock')"><div class="mc-bd">おすすめ</div><div class="mc-ic">🧁</div><div class="mc-nm">在庫管理あり</div><div class="mc-sub">お菓子・手作り品向け。何個売れて何個残ったか、完売時間がわかります。</div></div><div id="modeRegister" class="mc" onclick="setMode('register')"><div class="mc-ic">☕</div><div class="mc-nm">レジのみ</div><div class="mc-sub">古本・喫茶・フリマ向け。在庫入力なしで売上だけ記録します。</div></div><div class="sp"></div><button id="modeNext" class="bp" onclick="saveMode()">この方式ではじめる →</button></div></section>
@@ -155,7 +162,7 @@ function recordAdjustment(){const e=currentEvent();const pid=document.getElement
 function closeEvent(){const e=currentEvent();if(!e.sales.length&&!confirm('売上記録がまだありません。閉店しますか？'))return;e.status='closed';e.closedAt=Date.now();save();go('s8')}
 function totals(e){const total=e.sales.reduce((s,x)=>s+x.total,0);const sold=e.products.reduce((s,p)=>s+p.sold,0);const initial=e.products.reduce((s,p)=>s+(e.mode==='stock'?p.initialStock:0),0);return{total,sold,initial}}
 function render(){renderEvents();renderProducts();renderRegister();renderCart();renderAdjustments();renderCheckout();renderResults();renderReport();const e=currentEvent();if(e){document.getElementById('regTitle').textContent='🏪 '+(e.corner||'レジ');document.getElementById('modeBar').textContent=e.mode==='stock'?'🧁 在庫管理ありモード':'☕ レジのみモード';document.getElementById('adjBtn').style.display=e.mode==='stock'?'block':'none';document.getElementById('nowTime').textContent=hm();}}
-function renderEvents(){const box=document.getElementById('eventList');if(!box)return;if(!state.events.length){box.innerHTML='<div class="empty">まだイベント記録がありません。<br>まずは新しいイベントを作りましょう。</div>';return}box.innerHTML=state.events.map(e=>{const t=totals(e);return `<div class="ev-card" onclick="selectEvent('${e.id}')"><div class="ev-ic">${e.mode==='stock'?'🧁':'☕'}</div><div class="ev-inf"><div class="ev-nm">${esc(e.name)}</div><div class="ev-dt">${fmtDate(e.date)}｜${esc(e.corner)} <span class="badge">${e.status==='closed'?'閉店':'開店中'}</span></div></div><div class="ev-sa"><div class="ev-am">${money(t.total)}</div><div class="small">${t.sold}個販売</div></div><div class="ev-ar">›</div></div>`}).join('')}
+function renderEvents(){const box=document.getElementById('eventList');if(!box)return;if(!state.events.length){box.innerHTML='<div class="top-a-empty"><div class="top-a-empty-icon">🎪</div><div class="top-a-empty-text">まだイベントの記録がありません。<br>最初のイベントを作りましょう！</div></div>';return}box.innerHTML=state.events.map(e=>{const t=totals(e);return `<div class="ev-card" onclick="selectEvent('${e.id}')"><div class="ev-ic">${e.mode==='stock'?'🧁':'☕'}</div><div class="ev-inf"><div class="ev-nm">${esc(e.name)}</div><div class="ev-dt">${fmtDate(e.date)}｜${esc(e.corner)} <span class="badge">${e.status==='closed'?'閉店':'開店中'}</span></div></div><div class="ev-sa"><div class="ev-am">${money(t.total)}</div><div class="small">${t.sold}個販売</div></div><div class="ev-ar">›</div></div>`}).join('')}
 function renderProducts(){const e=currentEvent();const box=document.getElementById('productList');if(!box||!e)return;document.getElementById('stockInputWrap').style.display=e.mode==='stock'?'block':'none';box.innerHTML=e.products.length?e.products.map(p=>`<div class="pr"><div class="pr-ic">${p.icon}</div><div class="grow"><div class="pr-nm">${esc(p.name)}</div><div class="pr-dt">${yen(p.price)}${e.mode==='stock'?' / 準備 '+p.initialStock+'個':' / レジのみ'}</div></div><div class="pr-st">${e.mode==='stock'?p.currentStock+'個':'登録済'}</div><button class="mini-btn danger" onclick="deleteProduct('${p.id}')">削除</button></div>`).join(''):'<div class="empty">商品を追加してください</div>'}
 function renderRegister(){const e=currentEvent();const box=document.getElementById('registerGrid');if(!box||!e)return;box.innerHTML=e.products.map(p=>{const low=e.mode==='stock'&&p.currentStock>0&&p.currentStock<=3;const gone=e.mode==='stock'&&p.currentStock<=0;return `<div class="rc ${low?'low':''} ${gone?'gone':''}" onclick="addToCart('${p.id}')">${low?'<div class="low-bd">残りわずか</div>':''}<div class="rc-ic">${p.icon}</div><div class="rc-nm">${esc(p.name)}${gone?'<span class="sold-bd">完売</span>':''}</div><div class="rc-pr">${yen(p.price)}</div><div class="rc-st">${e.mode==='stock'?(gone?(p.soldOutAt?hm(p.soldOutAt)+' 完売':'完売'):'残り '+p.currentStock+'個'):'販売 '+p.sold+'個'}</div>${state.cart[p.id]?`<div class="badge">カート ${state.cart[p.id]}個</div>`:''}</div>`}).join('')}
 function renderCart(){const e=currentEvent();const box=document.getElementById('cartLines');if(!box||!e)return;const entries=Object.entries(state.cart);box.innerHTML=entries.length?entries.map(([pid,qty])=>{const p=e.products.find(x=>x.id===pid);return `<div class="ca-ln"><span>${esc(p.name)} × ${qty} <button class="mini-btn" onclick="removeCart('${pid}')">−</button></span><span>${yen(p.price*qty)}</span></div>`}).join(''):'<div class="hint">まだ商品が選ばれていません</div>';document.getElementById('cartTotal').textContent=yen(cartTotal())}
@@ -173,12 +180,22 @@ load();render();setInterval(()=>{const n=document.getElementById('nowTime');if(n
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./sw.js').catch(function (error) {
+    navigator.serviceWorker.register('./sw.js?v=1.9').then(function (registration) {
+      registration.update();
+      registration.addEventListener('updatefound', function () {
+        const newWorker = registration.installing;
+        if (!newWorker) return;
+        newWorker.addEventListener('statechange', function () {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            window.location.reload();
+          }
+        });
+      });
+    }).catch(function (error) {
       console.log('Service Worker registration failed:', error);
     });
   });
 }
 </script>
-
 </body>
 </html>

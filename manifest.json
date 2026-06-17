@@ -2,7 +2,7 @@
   "name": "あれ売れた？",
   "short_name": "あれ売れた？",
   "description": "売ったあと、記録で困らないイベント販売レジ。",
-  "start_url": "./index.html",
+  "start_url": "./index.html?v=1.9",
   "scope": "./",
   "display": "standalone",
   "background_color": "#FFF5EF",
