@@ -1,0 +1,26 @@
+{
+  "name": "あれ売れた？",
+  "short_name": "あれ売れた？",
+  "description": "売ったあと、記録で困らないイベント販売レジ。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFF5EF",
+  "theme_color": "#2D5A3D",
+  "orientation": "portrait",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
