@@ -24,3 +24,5 @@
 - sw.js
 - icon-192.png
 - icon-512.png
+
+- https://takoyaki-project.github.io/are-ureta-event-register/
