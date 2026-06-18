@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>あれ売れた？ v1.9</title>
+<title>あれ売れた？ v1.10</title>
 <meta name="theme-color" content="#2D5A3D">
 <meta name="description" content="売ったあと、記録で困らないイベント販売レジ。バザー・夏祭り・文化祭などで、売上・在庫・完売時間を記録できます。">
 <link rel="manifest" href="./manifest.json">
@@ -30,7 +30,7 @@ html, body { min-height: 100%; background: var(--og-bg); }
 .sc:not(#s1)>.devnav{display:none}
 
 
-/* v1.9 top A layout */
+/* v1.10 top A layout */
 .top-a-header{background:var(--gn);padding:22px 20px 20px;position:relative;overflow:hidden;flex-shrink:0}
 .top-a-header::after{content:'';position:absolute;right:-20px;bottom:-30px;width:120px;height:120px;background:var(--og);border-radius:50%;opacity:.18}
 .top-a-name{font-size:22px;font-weight:900;color:#fff;display:flex;align-items:center;gap:10px;position:relative;z-index:1}
@@ -180,7 +180,7 @@ load();render();setInterval(()=>{const n=document.getElementById('nowTime');if(n
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./sw.js?v=1.9').then(function (registration) {
+    navigator.serviceWorker.register('./sw.js?v=1.10').then(function (registration) {
       registration.update();
       registration.addEventListener('updatefound', function () {
         const newWorker = registration.installing;
