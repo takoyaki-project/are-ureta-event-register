@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>あれ売れた？ v1.10</title>
+<title>あれ売れた？ v1.11</title>
 <meta name="theme-color" content="#2D5A3D">
 <meta name="description" content="売ったあと、記録で困らないイベント販売レジ。バザー・夏祭り・文化祭などで、売上・在庫・完売時間を記録できます。">
 <link rel="manifest" href="./manifest.json">
@@ -30,7 +30,7 @@ html, body { min-height: 100%; background: var(--og-bg); }
 .sc:not(#s1)>.devnav{display:none}
 
 
-/* v1.10 top A layout */
+/* v1.11 top A layout */
 .top-a-header{background:var(--gn);padding:22px 20px 20px;position:relative;overflow:hidden;flex-shrink:0}
 .top-a-header::after{content:'';position:absolute;right:-20px;bottom:-30px;width:120px;height:120px;background:var(--og);border-radius:50%;opacity:.18}
 .top-a-name{font-size:22px;font-weight:900;color:#fff;display:flex;align-items:center;gap:10px;position:relative;z-index:1}
@@ -41,6 +41,37 @@ html, body { min-height: 100%; background: var(--og-bg); }
 .top-a-empty-icon{font-size:32px;margin-bottom:6px}
 .top-a-empty-text{font-size:14px;font-weight:700;color:var(--tx-lt);line-height:1.6}
 .top-a-menu-title{font-size:12px;font-weight:900;color:var(--tx-lt);margin:14px 18px 8px}
+
+
+/* v1.11 single top menu */
+.devnav{display:none!important}
+.top-menu-grid{
+  background:rgba(255,245,239,.96);
+  padding:10px 12px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  border-top:1px solid var(--cr-dk);
+  border-bottom:1px solid var(--cr-dk);
+  flex-shrink:0;
+}
+.top-menu-grid button{
+  background:#fff;
+  border:2px solid var(--cr-dk);
+  border-radius:14px;
+  padding:9px 4px;
+  min-height:42px;
+  font-size:12px;
+  font-weight:900;
+  color:var(--tx-lt);
+  font-family:inherit;
+  cursor:pointer;
+}
+.top-menu-grid button.cur{
+  background:var(--gn);
+  color:var(--wh);
+  border-color:var(--gn);
+}
 
 </style>
 </head>
@@ -62,8 +93,10 @@ html, body { min-height: 100%; background: var(--og-bg); }
     </div>
   </div>
 
+  
+
   <div class="top-a-menu-title">画面メニュー</div>
-  <div class="devnav">
+  <div id="topMenu" class="top-menu-grid">
     <button class="cur" onclick="go('s1')">一覧</button>
     <button onclick="go('s2')">作成</button>
     <button onclick="go('s3')">方式</button>
@@ -180,7 +213,7 @@ load();render();setInterval(()=>{const n=document.getElementById('nowTime');if(n
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./sw.js?v=1.10').then(function (registration) {
+    navigator.serviceWorker.register('./sw.js?v=1.11').then(function (registration) {
       registration.update();
       registration.addEventListener('updatefound', function () {
         const newWorker = registration.installing;
