@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>あれ売れた？ v1.12.1</title>
+<title>あれ売れた？ v1.12.2</title>
 <meta name="theme-color" content="#2D5A3D">
 <meta name="description" content="売ったあと、記録で困らないイベント販売レジ。バザー・夏祭り・文化祭などで、売上・在庫・完売時間を記録できます。">
 <link rel="manifest" href="./manifest.json">
@@ -73,10 +73,10 @@ html, body { min-height: 100%; background: var(--og-bg); }
   border-color:var(--gn);
 }
 
-/* v1.12.1 product master / group summary */
+/* v1.12 product master / group summary */
 .bottom-actions{display:flex;gap:10px;margin-top:12px}
 .bottom-actions .bgh,.bottom-actions .bp,.bottom-actions .bg,.bottom-actions .bs{margin-top:0}
-.prep-card{background:var(--wh);border:2.5px solid var(--cr-dk);border-radius:var(--r);padding:16px 15px;margin-bottom:12px;cursor:pointer;box-shadow:0 2px 8px rgba(45,90,61,.08)}
+.prep-card{background:var(--wh);border:2.5px solid var(--cr-dk);border-radius:var(--r);padding:16px 15px;margin-bottom:12px;cursor:pointer;box-shadow:0 2px 8px rgba(45,90,61,.08);width:100%;display:block;text-align:left;font-family:inherit;color:inherit}
 .prep-card.primary{border-color:var(--og-lt);background:var(--og-bg)}
 .prep-title{font-size:18px;font-weight:900;color:var(--gn);margin-bottom:5px}
 .prep-desc{font-size:13px;color:var(--tx-lt);line-height:1.7}
@@ -135,17 +135,17 @@ html, body { min-height: 100%; background: var(--og-bg); }
 
 <section class="sc" id="s3b"><div class="tb"><button class="bk" onclick="go('s3')">←</button><div class="ti">商品を準備する</div><div class="tm">3 / 5</div></div><div class="sb">
   <div class="hint" style="margin-bottom:14px">今回販売する商品をどう準備しますか？</div>
-  <div class="prep-card primary" onclick="usePreviousProducts()">
+  <button type="button" id="prepUsePreviousBtn" class="prep-card primary" onclick="usePreviousProducts()">
     <div class="prep-title">前回の商品を使う</div>
     <div class="prep-desc">保存済みの商品を読み込み、今回の在庫数だけ入力します。</div>
-  </div>
+  </button>
   <div class="prep-card" onclick="startProductNew()">
     <div class="prep-title">新しく商品を登録する</div>
-    <div class="prep-desc">商品名・価格・グループ・カテゴリ（任意）・今回の在庫数を登録します。</div>
+    <div class="prep-desc">商品名・価格・グループ・カテゴリ・今回の在庫数を登録します。</div>
   </div>
   <div class="prep-card" onclick="editProductMaster()">
     <div class="prep-title">商品一覧を編集する</div>
-    <div class="prep-desc">保存済みの商品名・価格・グループ・カテゴリ（任意）を直します。</div>
+    <div class="prep-desc">保存済みの商品名・価格・グループ・カテゴリを直します。</div>
   </div>
   <div class="sp"></div>
   <button class="bgh" onclick="go('s3')">戻る</button>
@@ -165,7 +165,7 @@ html, body { min-height: 100%; background: var(--og-bg); }
   <div class="bottom-actions"><button class="bgh" onclick="go('s3b')">戻る</button><button class="bg" onclick="saveMasterEdits()" style="font-size:17px;padding:17px">商品一覧を保存する ✓</button></div>
 </div></section>
 
-<section class="sc" id="s4"><div class="tb"><button class="bk" onclick="go('s3b')">←</button><div class="ti">商品を登録してください</div><div class="tm">4 / 5</div></div><div class="sb"><div id="productList" class="pl"></div><div class="ab"><div class="ab-t">＋ 商品を追加</div><label class="lbl">商品名</label><input id="pName" class="inp sm" placeholder="例：みたらし団子" style="margin-bottom:11px"><div class="row"><div><label class="lbl">グループ</label><input id="pGroup" class="inp sm" placeholder="例：手作りお菓子係"></div><div><label class="lbl">カテゴリ（任意）</label><input id="pCategory" class="inp sm" placeholder="例：お菓子（空欄でもOK）"></div></div><div class="row"><div><label class="lbl">価格（円）</label><input id="pPrice" class="inp sm" inputmode="numeric" placeholder="100"></div><div id="stockInputWrap"><label class="lbl">準備数（個）</label><input id="pStock" class="inp sm" inputmode="numeric" placeholder="20"></div></div><button class="bp" style="margin-top:12px;font-size:17px;padding:13px" onclick="addProduct()">追加する ✓</button></div><div class="bottom-actions"><button class="bgh" onclick="go('s3b')">商品準備に戻る</button><button class="bg" onclick="finishProducts()" style="font-size:17px;padding:17px">全部登録した！→ 開店前確認へ</button></div></div></section>
+<section class="sc" id="s4"><div class="tb"><button class="bk" onclick="go('s3b')">←</button><div class="ti">商品を登録してください</div><div class="tm">4 / 5</div></div><div class="sb"><div id="productList" class="pl"></div><div class="ab"><div class="ab-t">＋ 商品を追加</div><label class="lbl">商品名</label><input id="pName" class="inp sm" placeholder="例：みたらし団子" style="margin-bottom:11px"><div class="row"><div><label class="lbl">グループ</label><input id="pGroup" class="inp sm" placeholder="例：手作りお菓子係"></div><div><label class="lbl">カテゴリ</label><input id="pCategory" class="inp sm" placeholder="例：お菓子"></div></div><div class="row"><div><label class="lbl">価格（円）</label><input id="pPrice" class="inp sm" inputmode="numeric" placeholder="100"></div><div id="stockInputWrap"><label class="lbl">準備数（個）</label><input id="pStock" class="inp sm" inputmode="numeric" placeholder="20"></div></div><button class="bp" style="margin-top:12px;font-size:17px;padding:13px" onclick="addProduct()">追加する ✓</button></div><div class="bottom-actions"><button class="bgh" onclick="go('s3b')">商品準備に戻る</button><button class="bg" onclick="finishProducts()" style="font-size:17px;padding:17px">全部登録した！→ 開店前確認へ</button></div></div></section>
 <section class="sc" id="s5"><div class="tb"><button class="bk" onclick="go('s3b')">←</button><div class="ti">開店前にご確認ください</div><div class="tm">5 / 5</div></div><div class="sb"><div class="hero"><div class="hero-ic">✅</div><div class="hero-t">開店準備ができましたか？</div></div><div class="nl"><div class="ni"><span class="ni-ic">📱</span><span>データはこの端末に保存されます。イベント中は<strong>同じ端末</strong>を使ってください</span></div><div class="ni"><span class="ni-ic">🔒</span><span>画面の<strong>自動ロックをオフ</strong>、または時間を長めに設定してください</span></div><div class="ni"><span class="ni-ic">🔋</span><span><strong>充電を確認</strong>してください。できれば充電しながら使いましょう</span></div><div class="ni"><span class="ni-ic">🌐</span><span>インターネットがなくても使えます。安心してご利用ください</span></div></div><div class="sp"></div><button class="bg" onclick="openShop()" style="font-size:22px;padding:20px;margin-top:16px">🏪 開店する！</button></div></section>
 <section class="sc" id="s6"><div class="tb"><div class="ti" id="regTitle">🏪 レジ</div><div class="tm" id="nowTime"></div></div><div class="adj-bar"><span id="modeBar">🧁 在庫管理ありモード</span><button id="adjBtn" class="adj-bar-btn" onclick="go('s6b')">📦 在庫を調整する</button></div><div class="sb" style="padding-top:14px;padding-bottom:0"><div class="hint" style="margin-bottom:9px">商品をタップするとカートに追加されます</div><div id="registerGrid" class="rg"></div><button class="bgh" onclick="closeEvent()">閉店して結果を見る</button></div><div class="ca"><div class="ca-hd">🛒 今回のお会計</div><div id="cartLines"></div><div class="ca-tot"><span>合計</span><span id="cartTotal">0円</span></div><div class="ca-btns"><button class="cb pay" onclick="checkoutDirect()">✓ 会計する</button><button class="cb chg" onclick="goCheckout()">🪙 おつり<br>計算</button></div><button class="cb cancel" onclick="clearCart()">取り消し（最初からやり直す）</button><button class="cb undo" onclick="undoLastSale()">↩ 直前の会計を取り消す</button></div></section>
 <section class="sc" id="s6b"><div class="tb"><button class="bk" onclick="go('s6')">✕ 閉じる</button><div class="ti">在庫を調整する</div></div><div class="sb"><div class="hint" style="margin-bottom:16px">追加・破損・数え直しなどの在庫変更を記録します</div><label class="lbl">対象の商品</label><select id="adjProduct" class="sel"></select><label class="lbl">変更の種類</label><div class="row" style="margin-bottom:14px"><button id="adjPlus" class="bs" style="margin:0" onclick="setAdjType(1)">＋ 追加</button><button id="adjMinus" class="bs" style="margin:0;color:var(--rd);border-color:#e8aaaa" onclick="setAdjType(-1)">－ 減らす</button></div><label class="lbl">変更する個数</label><input id="adjQty" class="inp" inputmode="numeric" placeholder="5" style="font-size:26px;text-align:center"><label class="lbl">理由</label><select id="adjReason" class="sel"><option>追加持ち込み</option><option>破損・廃棄</option><option>数え直し（修正）</option><option>その他</option></select><button class="bp" onclick="recordAdjustment()">記録する ✓</button><button class="bgh" onclick="go('s6')">キャンセル</button><div class="dv">変更履歴</div><div id="adjLog" class="adj-log"></div></div></section>
@@ -282,13 +282,31 @@ function copyReport(){const e=currentEvent();const t=totals(e);const groupText=g
 function seedDemo(){if(!confirm('おためし用のイベント記録を作ります。本番の記録とは別に保存されます。よろしいですか？'))return;const e={id:uid(),name:'〇〇小学校バザー2026',date:today(),corner:'手作りお菓子コーナー',mode:'stock',status:'closed',createdAt:Date.now(),openedAt:Date.now(),closedAt:Date.now(),sales:[],adjustments:[],products:[{id:uid(),icon:'🍪',name:'手作りクッキー',price:200,group:'手作りお菓子係',category:'お菓子',initialStock:30,currentStock:0,sold:30,soldOutAt:Date.now()-3600000},{id:uid(),icon:'🧇',name:'黒糖ワッフル',price:150,group:'手作りお菓子係',category:'お菓子',initialStock:20,currentStock:2,sold:18,soldOutAt:null},{id:uid(),icon:'🍡',name:'みたらし団子',price:100,group:'喫茶係',category:'お菓子',initialStock:20,currentStock:0,sold:20,soldOutAt:Date.now()-2600000},{id:uid(),icon:'🎂',name:'シフォンケーキ',price:300,group:'喫茶係',category:'お菓子',initialStock:10,currentStock:4,sold:6,soldOutAt:null}]};e.sales=[{id:uid(),time:Date.now(),items:[],total:12350,paid:null,change:null}];state.events.unshift(e);state.currentId=e.id;save();go('s8')}
 function esc(s){return String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 function fmtDate(d){if(!d)return'';const x=new Date(d+'T00:00:00');return isNaN(x)?d:x.toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'short'})}
-load();render();setInterval(()=>{const n=document.getElementById('nowTime');if(n)n.textContent=hm()},30000);
+
+function bindPrepButtons(){
+  const pairs=[
+    ['prepUsePreviousBtn',usePreviousProducts],
+    ['prepNewProductBtn',startProductNew],
+    ['prepEditMasterBtn',editProductMaster]
+  ];
+  pairs.forEach(([id,fn])=>{
+    const el=document.getElementById(id);
+    if(el && !el.dataset.bound){
+      el.addEventListener('click',function(ev){ ev.preventDefault(); fn(); });
+      el.dataset.bound='1';
+    }
+  });
+}
+window.usePreviousProducts=usePreviousProducts;
+window.startProductNew=startProductNew;
+window.editProductMaster=editProductMaster;
+load();bindPrepButtons();render();setInterval(()=>{const n=document.getElementById('nowTime');if(n)n.textContent=hm()},30000);
 </script>
 
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./sw.js?v=1.12.1').then(function (registration) {
+    navigator.serviceWorker.register('./sw.js?v=1.12').then(function (registration) {
       registration.update();
       registration.addEventListener('updatefound', function () {
         const newWorker = registration.installing;
