@@ -1,6 +1,6 @@
 # あれ売れた？
 
-![メイン画像](画像パス)
+<img width="1536" height="1024" alt="ChatGPT Image 2026年6月18日 21_59_33" src="https://github.com/user-attachments/assets/095b19bc-b837-45f0-b749-1d7907fb8d22" />
 
 ## 🌟 これは何？
 
