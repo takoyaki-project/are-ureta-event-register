@@ -17,3 +17,5 @@
 - icon-512.png
 
 この5つを同じ階層に上書きしてください。
+
+ https://takoyaki-project.github.io/are-ureta-event-register/
