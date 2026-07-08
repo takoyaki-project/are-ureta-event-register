@@ -38,8 +38,8 @@
 ## 🖼 スクリーンショット
 <table>
   <tr>
-    <td><img src="images/IMG_8549.jpeg" width="350"></td>
-    <td><img src="images/IMG_8553.jpeg" width="350"></td>
+    <td><img src="images/IMG_8549.jpeg" width="300"></td>
+    <td><img src="images/IMG_8553.jpeg" width="300"></td>
   </tr>
 </table>
 
