@@ -1,9 +1,9 @@
-const CACHE_NAME = 'are-ureta-v1-13-cache-001';
+const CACHE_NAME = 'are-ureta-v1-14-cache-001';
 
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './index.html?v=1.13',
+  './index.html?v=1.14',
   './manifest.json',
   './sw.js',
   './icon-192.png',
