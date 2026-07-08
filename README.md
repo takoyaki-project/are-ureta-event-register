@@ -37,7 +37,8 @@
 
 ## 🖼 スクリーンショット
 
-![表示されないときの文字](images/IMG_8549.jpeg)
+<img src="images/IMG_8549.jpeg" width="400">
+<img src="images/IMG_8553.jpeg" width="400">
 
 ## 🛠 使用技術
 
