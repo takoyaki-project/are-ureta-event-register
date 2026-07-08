@@ -37,9 +37,7 @@
 
 ## 🖼 スクリーンショット
 
-https://github.com/takoyaki-project/are-ureta-event-register/blob/main/images/IMG_8549.jpeg
-
-https://github.com/takoyaki-project/are-ureta-event-register/blob/main/images/IMG_8553.jpeg
+![表示されないときの文字](image/IMG_8549.jpeg)
 
 ## 🛠 使用技術
 
