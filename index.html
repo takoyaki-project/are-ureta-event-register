@@ -320,7 +320,7 @@ load();render();setInterval(()=>{const n=document.getElementById('nowTime');if(n
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./sw.js?v=1.12').then(function (registration) {
+    navigator.serviceWorker.register('./sw.js?v=1.14').then(function (registration) {
       registration.update();
       registration.addEventListener('updatefound', function () {
         const newWorker = registration.installing;
