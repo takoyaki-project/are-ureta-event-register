@@ -36,9 +36,12 @@
 6. 引継ぎレポートを見て、会計報告や次回の準備に使います。
 
 ## 🖼 スクリーンショット
-<img src="images/IMG_8549.jpeg" width="350">
-
-<img src="images/IMG_8553.jpeg" width="350">
+<table>
+  <tr>
+    <td><img src="image/IMG_8549.jpeg" width="350"></td>
+    <td><img src="image/IMG_8553.jpeg" width="350"></td>
+  </tr>
+</table>
 
 ## 🛠 使用技術
 
